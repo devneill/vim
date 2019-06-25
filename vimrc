@@ -8,9 +8,9 @@ filetype plugin on
 
 " ----------------------------------------------------------my preferences
 " tab set up
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces for indent
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2    " number of spaces for indent
 set expandtab       " tabs are spaces
 
 set scrolloff=5 " start scrolling when cursor is 5 lines away from screen top or bottom
@@ -52,6 +52,19 @@ inoremap <right> <nop>
 " alter j and k behaviour
 nnoremap j gj
 nnoremap k gk
+
+" allow for quick cursor moves when in insert mode
+"single movements h j k l
+noremap! <Leader>h <left>
+noremap! <Leader>j <down>
+noremap! <Leader>k <up>
+noremap! <Leader>l <right>
+"append shortcuts
+noremap! <Leader>A <esc>A
+noremap! <Leader>a <esc>a
+"new line and insert shortcuts
+noremap! <Leader>O <esc>O
+noremap! <Leader>o <esc>o
 
 " autoclose config
 source ~/.vim/config/autoclose.vim 
