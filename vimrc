@@ -39,6 +39,7 @@ inoremap jk <esc> " jk is escape
 " open .vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
+:nnoremap <leader>u :let @" = expand("%")<cr>
 " -------------------------------training wheels
 " disable arrow keys in normal and insert mode
 nnoremap <up> <nop>
@@ -83,6 +84,15 @@ call plug#begin('~/.vim/plugs')
   Plug 'pangloss/vim-javascript'
   Plug 'morhetz/gruvbox' 
   Plug 'mattn/emmet-vim'
+  Plug 'valloric/MatchTagAlways'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'tpope/vim-commentary'
+  Plug 'suy/vim-context-commentstring'
+  Plug 'w0rp/ale'
+  Plug 'skywind3000/asyncrun.vim'
+  Plug 'lumiliet/vim-twig'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
 call plug#end()
 
 " -----------------------------------individual plugin config
@@ -93,3 +103,9 @@ colorscheme gruvbox
 
 " emmet config
 let g:user_emmet_leader_key=','
+
+" asyncrun config
+autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+
+" vim repeat config
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
